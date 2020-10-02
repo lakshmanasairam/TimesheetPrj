@@ -1,0 +1,53 @@
+﻿@model TimesheetPrj.ViewModel.TimeSheetViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.ValidationSummary(false, null, new { @class="text-danger"})
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            @using (Html.BeginForm())
+            {
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.Role)
+                    @Html.TextBoxFor(x => x.Time.Role, new { @class = "form-control", autocomplete = "off" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.Experience)
+                    @Html.TextBoxFor(x => x.Time.Experience, new { @class = "form-control", autocomplete = "off" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.AsDate)
+                    @Html.TextBoxFor(x => x.Time.AsDate, new { @class = "form-control", autocomplete = "off" ,type="date" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.ComDate)
+                    @Html.TextBoxFor(x => x.Time.ComDate, new { @class = "form-control", autocomplete = "off" ,type="date" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.Status)
+                    @*@Html.TextBoxFor(x=>x.Time.Status,new { @class="form-control", autocomplete="off"})*@
+                    
+                    @Html.DropDownListFor(x => x.Time.Status, new SelectList(Model.Status,"Value","Text"),new { @class="form-control" })
+                    </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Time.Taskdes)
+                    @Html.TextBoxFor(x => x.Time.Taskdes, new { @class = "form-control", autocomplete = "off" })
+                </div>
+
+                <div class="form-group">
+                    <button id="CmdSubmit" type="submit"class="btn btn-outline-secondary">Save</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
