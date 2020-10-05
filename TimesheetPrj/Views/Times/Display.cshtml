@@ -1,0 +1,26 @@
+﻿@model TimesheetPrj.Models.Time
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>TimeEntrySystem</h2>
+
+<div>
+<div>
+    <div>
+        <label>Select A Name</label>
+    </div>
+    <div>
+        <select class="form-control" id="Names" name="Name Of Student">
+            <option value="0">Select Code</option>
+            <option>700 GeneralAttendence</option>
+            <option>100 CompanyAttendence</option>
+            <option>110 SickLeave</option>
+            <option>210 ProjectAttendence</option>
+        </select>
+    </div>
+</div>
+<div style="padding-top:30px">
+    @Html.ActionLink("GO", "Create", "Times", null, new { @class = "btn btn-primary" })
+</div>
+</div>

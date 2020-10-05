@@ -249,7 +249,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Times\Create.cshtml" />
     <Content Include="Views\Times\Index.cshtml" />
-    <Content Include="Views\Times\View.cshtml" />
+    <Content Include="Views\Times\Display.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

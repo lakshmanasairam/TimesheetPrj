@@ -80,12 +80,11 @@ namespace TimesheetPrj.Controllers
                 new SelectListItem{Text="NotCompleted",Value="NotCompleted"}
             };
         }
-        //public Action Date(DateTime year)
-        //{
-        //    int days = DateTime.Now.Day - year.Day;
-        //    int hrs = days * 09;
-            
-        //}
-        //retu
+        
+        public ActionResult Display()
+        {
+            return View();
+        }
+
     }
 }
