@@ -23,7 +23,7 @@ namespace TimesheetPrj
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap_minty.css",
                       "~/Content/site.css"));
         }
     }

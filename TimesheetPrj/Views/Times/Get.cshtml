@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TimesheetPrj.Models.Time>
+@{
+    ViewBag.Title = "Get";
+}
+
+<h2>Get</h2>
+<table>
+    <tr>
+        <th>Role</th>
+        <th>Experience</th>
+        <th>Total hrs</th>
+        <th>Status</th>
+    </tr>
+  @foreach (var item in Model)
+  {
+      <tr>
+          <td>@item.Role</td>
+          <td>@item.Experience</td>
+          @{
+              var time = item.ComDate.TimeOfDay - item.AsDate.TimeOfDay;
+          }
+          <td>@time</td>
+          <td>@item.Status</td>
+
+      </tr>
+
+  }
+</table>
+

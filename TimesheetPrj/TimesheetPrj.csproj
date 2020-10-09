@@ -182,6 +182,10 @@
     <Compile Include="Migrations\202009301405196_Editingtheintnotnull.Designer.cs">
       <DependentUpon>202009301405196_Editingtheintnotnull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010070531508_updatedb.cs" />
+    <Compile Include="Migrations\202010070531508_updatedb.Designer.cs">
+      <DependentUpon>202010070531508_updatedb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -196,6 +200,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_minty.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -250,6 +255,7 @@
     <Content Include="Views\Times\Create.cshtml" />
     <Content Include="Views\Times\Index.cshtml" />
     <Content Include="Views\Times\Display.cshtml" />
+    <Content Include="Views\Times\Get.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009301405196_Editingtheintnotnull.resx">
       <DependentUpon>202009301405196_Editingtheintnotnull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010070531508_updatedb.resx">
+      <DependentUpon>202010070531508_updatedb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

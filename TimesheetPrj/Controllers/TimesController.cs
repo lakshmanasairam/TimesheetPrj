@@ -77,13 +77,20 @@ namespace TimesheetPrj.Controllers
             {
                 new SelectListItem{Text="Select Status"},
                 new SelectListItem{Text="Completed",Value="Completed"},
-                new SelectListItem{Text="NotCompleted",Value="NotCompleted"}
+                new SelectListItem{Text="InProgress",Value="InProgress"}
             };
         }
         
         public ActionResult Display()
         {
             return View();
+        }
+
+        public ActionResult Get()
+        {
+            var times = (from Time in dbContext.times select Time).ToList();
+            
+            return View(times);
         }
 
     }
