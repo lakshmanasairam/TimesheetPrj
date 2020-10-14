@@ -8,7 +8,7 @@ using TimesheetPrj.ViewModel;
 
 namespace TimesheetPrj.Controllers
 {
-    [HandleError(View ="View")]
+    [HandleError(View = "View")]
     public class TimesController : Controller
     {
         private ApplicationDbContext dbContext = null;
@@ -20,7 +20,7 @@ namespace TimesheetPrj.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if(dbContext!=null)
+            if (dbContext != null)
             {
                 dbContext.Dispose();
             }
@@ -32,16 +32,16 @@ namespace TimesheetPrj.Controllers
             List<Time> times = GetTimes();
             return View(times);
         }
-        
+
         [HttpGet]
         public ActionResult Create()
         {
             var viewModel = new TimeSheetViewModel
             {
                 Time = new Time(),
-                Status= GetStatus()
+                Status = GetStatus()
             };
-            return View("Create",viewModel);
+            return View("Create", viewModel);
         }
 
         [HttpPost]
@@ -58,8 +58,8 @@ namespace TimesheetPrj.Controllers
             }
             dbContext.times.Add(time);
             dbContext.SaveChanges();
-           
-            return RedirectToAction("Index", "Times");
+
+            return RedirectToAction("Get", "Times");
         }
 
 
@@ -80,16 +80,19 @@ namespace TimesheetPrj.Controllers
                 new SelectListItem{Text="InProgress",Value="InProgress"}
             };
         }
-        
+
         public ActionResult Display()
+        //// public ActionResult Display(Login login)
         {
+            //dbContext.logins.Add(login);
+            //dbContext.SaveChanges();
             return View();
         }
 
         public ActionResult Get()
         {
             var times = (from Time in dbContext.times select Time).ToList();
-            
+
             return View(times);
         }
 

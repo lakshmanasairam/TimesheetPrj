@@ -186,9 +186,14 @@
     <Compile Include="Migrations\202010070531508_updatedb.Designer.cs">
       <DependentUpon>202010070531508_updatedb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010140751067_createtableLogins.cs" />
+    <Compile Include="Migrations\202010140751067_createtableLogins.Designer.cs">
+      <DependentUpon>202010140751067_createtableLogins.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Time.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -283,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010070531508_updatedb.resx">
       <DependentUpon>202010070531508_updatedb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010140751067_createtableLogins.resx">
+      <DependentUpon>202010140751067_createtableLogins.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

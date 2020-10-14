@@ -3,12 +3,43 @@
     ViewBag.Title = "Get";
 }
 
-<h2>Get</h2>
+<style>
+    table,tr,th,td {
+        border :1px solid black;
+        border-collapse:collapse
+    }
+    th{
+        height:30px;
+        text-align:left;
+        color:aliceblue;
+        background-color:blue;
+
+    }
+    tr {
+        height: 30px;
+        text-align: left;
+        
+    }
+    tr:hover{background-color:floralwhite}
+
+    tr:nth-child(even){background-color:#c1ccf9}
+
+   
+
+    th:nth-column(n) {
+        background-color: #0b7ff8
+    }
+    table{
+        width:50%
+    }
+</style>
+<h2 style="margin-top:20px;">Details</h2>
 <table>
     <tr>
         <th>Role</th>
         <th>Experience</th>
-        <th>Total hrs</th>
+        <th>Task Description</th>
+        <th>Total Hrs</th>
         <th>Status</th>
     </tr>
   @foreach (var item in Model)
@@ -17,8 +48,9 @@
           <td>@item.Role</td>
           <td>@item.Experience</td>
           @{
-              var time = item.ComDate.TimeOfDay - item.AsDate.TimeOfDay;
+              var time = item.ComDate - item.AsDate;
           }
+          <td>@item.Taskdes</td>
           <td>@time</td>
           <td>@item.Status</td>
 

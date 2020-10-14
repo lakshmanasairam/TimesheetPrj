@@ -31,5 +31,7 @@ namespace TimesheetPrj.Models
         }
 
         public DbSet<Time> times { get; set; }
+
+        public DbSet<Login> logins { get; set; }
     }
 }
