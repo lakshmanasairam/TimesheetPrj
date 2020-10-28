@@ -3,17 +3,17 @@ namespace TimesheetPrj.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class createtableLogins : DbMigration
+    public partial class createtablesignin : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Logins",
+                "dbo.Signins",
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
                         Username = c.String(),
-                        Password = c.String(),
+                        password = c.String(),
                         ConfirmPassword = c.String(),
                     })
                 .PrimaryKey(t => t.id);
@@ -22,7 +22,7 @@ namespace TimesheetPrj.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Logins");
+            DropTable("dbo.Signins");
         }
     }
 }

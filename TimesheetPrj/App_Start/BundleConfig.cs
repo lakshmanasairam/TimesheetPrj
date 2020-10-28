@@ -25,6 +25,12 @@ namespace TimesheetPrj
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap_minty.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
+               "~/Scripts/jquery-{version}.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                "~/Scripts/jquery.validate*"));
         }
     }
 }

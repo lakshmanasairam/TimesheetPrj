@@ -7,13 +7,13 @@ namespace TimesheetPrj.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class createtableLogins : IMigrationMetadata
+    public sealed partial class somechangesinsignin : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(createtableLogins));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(somechangesinsignin));
         
         string IMigrationMetadata.Id
         {
-            get { return "202010140751067_createtableLogins"; }
+            get { return "202010201052093_somechangesinsignin"; }
         }
         
         string IMigrationMetadata.Source

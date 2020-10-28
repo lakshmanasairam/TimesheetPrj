@@ -1,0 +1,104 @@
+﻿@model IEnumerable<TimesheetPrj.Models.Time>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row" style="margin-top:20px;">
+    <div class="col-2">
+        <label>
+            From Date
+        </label>
+    </div>
+    <div>
+        <input type="text" name="TxtFromdate" id="TxtFromdate" />
+    </div>
+    <div class="col-2">
+        <label>
+            To Date
+        </label>
+    </div>
+    <div>
+        <input type="text" name="TxtTodate" id="TxtTodate" />
+    </div>
+
+    <div class="form-group col-3">
+        <button id="CmdSubmit" type="submit" class="btn btn-outline-success">Search</button>
+    </div>
+</div>
+<p>
+    @using (Html.BeginForm("Result", "Times", FormMethod.Get))
+    {
+        @*<input type="date" name="start"/>
+            <input type="date" name="end" />
+            <input type="submit" name="submit" value="Search" />*@
+        <div class="row" style="margin-top:20px;">
+            <div class="col-3">
+                <label>From Date:</label>
+                @Html.TextBox("start","{0:yyyy-MM-dd}",new { @class = "form-control", type = "date" })
+            </div>
+            <div class="col-3">
+                <label>To Date:</label>
+                @Html.TextBox("end", "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            </div>
+            <div class="form-group col-3" style="margin-top:30px;">
+                <button id="CmdSearch" type="submit" class="btn btn-outline-success" value="search">Search</button>
+            </div>
+        </div>
+
+    }
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Experience)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Taskdes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AsDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taskdes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>

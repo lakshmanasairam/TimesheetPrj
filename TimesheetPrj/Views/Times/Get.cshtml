@@ -4,58 +4,92 @@
 }
 
 <style>
-    table,tr,th,td {
-        border :1px solid black;
-        border-collapse:collapse
+    table, tr, th, td {
+        border: 1px solid black;
+        border-collapse: collapse
     }
-    th{
-        height:30px;
-        text-align:left;
-        color:aliceblue;
-        background-color:blue;
 
+    th {
+        height: 30px;
+        text-align: left;
+        color: aliceblue;
+        background-color: blue;
     }
+
     tr {
         height: 30px;
         text-align: left;
-        
     }
-    tr:hover{background-color:floralwhite}
 
-    tr:nth-child(even){background-color:#c1ccf9}
+        tr:hover {
+            background-color: floralwhite
+        }
 
-   
+        tr:nth-child(even) {
+            background-color: #c1ccf9
+        }
+
+
 
     th:nth-column(n) {
         background-color: #0b7ff8
     }
-    table{
-        width:50%
+
+    table {
+        width: 70%
     }
 </style>
-<h2 style="margin-top:20px;">Details</h2>
+<div class="row" style="margin-top:20px;">
+    <div class="col-2">
+        <label>
+            From Date
+        </label>
+    </div>
+    <div>
+        <input type="text" name="TxtFromdate" id="TxtFromdate" />
+    </div>
+    <div class="col-2">
+        <label>
+            To Date
+        </label>
+    </div>
+    <div>
+        <input type="text" name="TxtTodate" id="TxtTodate" />
+    </div>
+
+    <div class="form-group col-3">
+        <button id="CmdSubmit" type="submit" class="btn btn-outline-success">Search</button>
+    </div>
+</div>
+<h2 style="margin-top:10px;">Details</h2>
 <table>
     <tr>
-        <th>Role</th>
-        <th>Experience</th>
+        <th>Story #</th>
+        <th>It #</th>
         <th>Task Description</th>
         <th>Total Hrs</th>
+        <th>From Date</th>
+        <th>To Date</th>
         <th>Status</th>
     </tr>
-  @foreach (var item in Model)
-  {
-      <tr>
-          <td>@item.Role</td>
-          <td>@item.Experience</td>
-          @{
-              var time = item.ComDate - item.AsDate;
-          }
-          <td>@item.Taskdes</td>
-          <td>@time</td>
-          <td>@item.Status</td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Role</td>
+            <td>@item.Experience</td>
+            @{
+                var time = item.ComDate - item.AsDate;
+            }
+            <td>@item.Taskdes</td>
+            <td>@time</td>
+            <td>@item.AsDate.ToShortDateString()</td>
+            <td>@item.ComDate.ToShortDateString()</td>
+            <td>@item.Status</td>
 
-      </tr>
-
-  }
+        </tr>
+    }
 </table>
+<div style="margin-top:20px">
+    @Html.ActionLink("Back", "create", "Times", null, new { @class = "btn btn-outline-primary" })
+</div>
 

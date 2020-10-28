@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            @Html.ValidationSummary(false, null, new { @class="text-danger"})
+            @Html.ValidationSummary(false, null, new { @class = "text-danger" })
         </div>
     </div>
     <div class="row">
@@ -20,32 +20,45 @@
                     @Html.LabelFor(x => x.Time.Role)
                     @Html.TextBoxFor(x => x.Time.Role, new { @class = "form-control", autocomplete = "off" })
                 </div>
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.Time.Experience)
                     @Html.TextBoxFor(x => x.Time.Experience, new { @class = "form-control", autocomplete = "off" })
                 </div>
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.Time.AsDate)
-                    @Html.TextBoxFor(x => x.Time.AsDate, new { @class = "form-control", autocomplete = "off" ,type="datetime-local" })
+                    @Html.TextBoxFor(x => x.Time.AsDate,"{0:yyyy-MM-dd}", new { @class = "form-control",type="date"})
                 </div>
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.Time.ComDate)
-                    @Html.TextBoxFor(x => x.Time.ComDate, new { @class = "form-control", autocomplete = "off" ,type="datetime-local" })
+                    @Html.TextBoxFor(x => x.Time.ComDate,"{0:yyyy-MM-dd}", new { @class = "form-control", autocomplete = "off",type="date"})
                 </div>
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.Time.Status)
                     @*@Html.TextBoxFor(x=>x.Time.Status,new { @class="form-control", autocomplete="off"})*@
-                    
-                    @Html.DropDownListFor(x => x.Time.Status, new SelectList(Model.Status,"Value","Text"),new { @class="form-control" })
-                    </div>
+
+                    @Html.DropDownListFor(x => x.Time.Status, new SelectList(Model.Status, "Value", "Text"), new { @class = "form-control" })
+                </div>
+
                 <div class="form-group">
                     @Html.LabelFor(x => x.Time.Taskdes)
                     @Html.TextAreaFor(x => x.Time.Taskdes, new { @class = "form-control", autocomplete = "off" })
                 </div>
 
-                <div class="form-group">
-                    <button id="CmdSubmit" type="submit"class="btn btn-outline-secondary">Save</button>
+                <div class="row">
+                    <div class="form-group col-3">
+                        <button id="CmdSubmit" type="submit" class="btn btn-outline-secondary">Save</button>
+                    </div>
+
+                    <div class="col-3">
+                        @Html.ActionLink("Clear", "create", "Times", null, new { @class = "btn btn-outline-primary" })
+                    </div>
                 </div>
+
+
             }
         </div>
     </div>
