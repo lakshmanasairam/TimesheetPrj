@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using TimesheetPrj.Models;
 using TimesheetPrj.ViewModel;
 using ClassLibrary;
-using static TimesheetPrj.Models.Signin;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
@@ -70,13 +69,6 @@ namespace TimesheetPrj.Controllers
 
         }
 
-        //[HttpGet]
-        //public ActionResult DisplayAll()
-        //{
-            
-        //    return View();
-        //}
-
         [NonAction]
         public List<Time> GetTimes()
         {
@@ -107,7 +99,6 @@ namespace TimesheetPrj.Controllers
             //Signin model = new Signin();
             return View();
         }
-
 
         [HttpPost]
         public ActionResult Register(Signin signin)
@@ -142,39 +133,46 @@ namespace TimesheetPrj.Controllers
             return View();
         }
 
-      
+        [HttpGet]
         public ActionResult Get()
         {
             var times = (from Time in dbContext.times select Time).ToList();
             return View(times);
         }
-        
-        [Route("Result/{start}/{end}")]
-        public ActionResult Result(DateTime?start,DateTime?end)
+
+        [HttpPost]
+        // [Route("Result/{start}/{end}")]
+        public ActionResult Get(DateTime? start, DateTime? end)
         {
             string maincon = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             SqlConnection con = new SqlConnection(maincon);
-            string sqlquery = "select * from Times where AsDate between'" + start + "'and'" + end + "'";
+            //string sqlquery = "select * from Times where AsDate between (convert(datetime,'" + start + "',103) AND (Convert(datetime,'" + end + "',103)";
+            string sqlquery = "select * from Times where AsDate between (Convert(datetime,@start,103)) and (Convert(datetime,@end,103))";
             SqlCommand cmd = new SqlCommand(sqlquery, con);
+            cmd.Parameters.AddWithValue("@start", Convert.ToDateTime(start));
+            cmd.Parameters.AddWithValue("@end", Convert.ToDateTime(end));
+
+            //SqlCommand cmd = new SqlCommand(sqlquery, con);
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
-            sda.Fill(ds,"Times");
+            sda.Fill(ds, "Times");
             List<Time> times = new List<Time>();
-            foreach(DataRow dr in ds.Tables[0].Rows)
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 times.Add(new Time
                 {
-                    Role= Convert.ToString(dr["Role"]),
+                    Role = Convert.ToString(dr["Role"]),
                     Experience = Convert.ToString(dr["Experience"]),
                     AsDate = Convert.ToDateTime(dr["AsDate"]),
-                    ComDate= Convert.ToDateTime(dr["ComDate"]),
+                    ComDate = Convert.ToDateTime(dr["ComDate"]),
                     Status = Convert.ToString(dr["Status"]),
                     Taskdes = Convert.ToString(dr["Taskdes"]),
                 });
             }
             con.Close();
             ModelState.Clear();
+            ViewData.Add("Message3", "R");
             return View(times);
         }
     }

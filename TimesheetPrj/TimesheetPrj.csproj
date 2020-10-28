@@ -271,7 +271,6 @@
     <Content Include="Views\Times\Create.cshtml" />
     <Content Include="Views\Times\Display.cshtml" />
     <Content Include="Views\Times\Register.cshtml" />
-    <Content Include="Views\Times\Result.cshtml" />
     <Content Include="Views\Times\Get.cshtml" />
   </ItemGroup>
   <ItemGroup>
